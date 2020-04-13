@@ -16,7 +16,6 @@ class LinkAPI extends DataSource {
   }
 
   async getAllLinks() {
-    console.log('get them links');
     const links = await this.store.Link.findAll();
     return links;
   }
@@ -34,7 +33,6 @@ class LinkAPI extends DataSource {
   }
 
   async findLinks({ query }) {
-    // console.log(query);
     const results = await this.store.Link.findAll({
       where: {
         title: {
