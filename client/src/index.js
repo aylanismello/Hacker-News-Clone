@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import ApolloClient, { gql } from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
 import App from "./App";
 import "./index.css";
 
@@ -12,7 +13,7 @@ client
   .query({
     query: gql`
       {
-        launches {
+        links {
           id
           title
           url
@@ -23,8 +24,9 @@ client
   .then((result) => console.log(result));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+    {" "}
+    <App />{" "}
+  </ApolloProvider>,
   document.getElementById("root")
 );
