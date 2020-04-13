@@ -7,6 +7,14 @@ class LinkAPI extends DataSource {
     this.store = store;
   }
 
+  linkReducer({ link = {}, success = true, message = '' }) { 
+    return {
+      success,
+      message,
+      link
+    }
+  }
+
   async getAllLinks() {
     console.log('get them links');
     const links = await this.store.Link.findAll();
@@ -19,9 +27,9 @@ class LinkAPI extends DataSource {
         title,
         url,
       });
-      return newLink;
+      return this.linkReducer({ link: newLink });
     } catch (err) {
-      return err.message;
+      return this.linkReducer({ message: err.message, success: false });
     }
   }
 

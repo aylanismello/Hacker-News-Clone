@@ -8,8 +8,18 @@ const typeDefs = gql`
   }
 
   type Query {
-    link(title: String!): Link
     launches: [Link]
+    searchLaunches(query: String): [Link]
+  }
+
+  type Mutation {
+    addLink(title: String, url: String): CreateLinkResponse
+  }
+
+  type CreateLinkResponse {
+    success: Boolean!
+    message: String 
+    link: Link
   }
 `;
 
