@@ -1,9 +1,9 @@
 module.exports = {
   Query: {
-    launches: (_, { id }, { dataSources }) => {
+    links: (_, { id }, { dataSources }) => {
       return dataSources.linkAPI.getAllLinks();
     },
-    searchLaunches: (_, { query }, { dataSources }) => {
+    searchLinks: (_, { query }, { dataSources }) => {
       return dataSources.linkAPI.findLinks({ query });
     }
   },

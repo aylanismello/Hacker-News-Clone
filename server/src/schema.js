@@ -8,8 +8,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    launches: [Link]
-    searchLaunches(query: String): [Link]
+    links: [Link]
+    searchLinks(query: String): [Link]
   }
 
   type Mutation {
