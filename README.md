@@ -10,10 +10,10 @@
 
 ## How to build and run 🚀
 
-### 1. Install all packages
+### 1. Building (Install all packages)
 Type `npm install` in the root directly of the repository. This will install all node package in your `/client` and `/server` applications.
 
-### 2. Start up the client and the server
+### 2. Running (Start up the client and the server)
 Type `npm start` in the root directly of the repository. This will install all node package in your `/client` and `/server` applications.
 
 ### 3. Create a new Postgres db that you will use in `/server/src/uitls`. 
