@@ -32,6 +32,10 @@ with your database name.
 
 -------
 
+## Config
+### Update the server uri
+Update this `uri: "http://localhost:4000"` value in the `/client/src/index.js` file depending on where your server is being hosted
+
 
 ### Server Specific Development
 

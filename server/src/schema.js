@@ -1,10 +1,13 @@
 const { gql } = require("apollo-server");
 
 const typeDefs = gql`
+  scalar Date
+
   type Link {
     id: ID!
     title: String
     url: String
+    createdAt: Date
   }
 
   type Query {
@@ -18,7 +21,7 @@ const typeDefs = gql`
 
   type CreateLinkResponse {
     success: Boolean!
-    message: String 
+    message: String
     link: Link
   }
 `;

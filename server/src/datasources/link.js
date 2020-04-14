@@ -39,6 +39,9 @@ class LinkAPI extends DataSource {
           [Op.iRegexp]: query,
         },
       },
+      order: [
+        ["createdAt", "DESC"]
+      ]
     });
 
     return Array.isArray(results) ? results : [];
