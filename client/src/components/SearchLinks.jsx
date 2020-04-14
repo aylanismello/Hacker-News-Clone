@@ -13,26 +13,15 @@ const SEARCH_LINKS = gql`
   }
 `;
 
-const SearchLink = ({ setQuery }) => {
+const SearchLinks = ({ setQuery }) => {
   const [value, setValue] = useState("");
   
-  // const { data, loading, error } = useQuery(SEARCH_LINKS, {
-  //   variables: { query: "title" },
-  // });
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error :(</p>;
-  // if (!data) return <p>Not found</p>;
-
-  // console.log("i am jesus");
-  // console.log(data);
-
   return (
     <Box>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           setQuery(value);
-          // debugger;
         }}
         className="SearchLink"
       >
@@ -51,4 +40,4 @@ const SearchLink = ({ setQuery }) => {
   );
 };
 
-export default SearchLink;
+export default SearchLinks;
