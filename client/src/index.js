@@ -9,19 +9,19 @@ const client = new ApolloClient({
   uri: "http://localhost:4000",
 });
 
-client
-  .query({
-    query: gql`
-      {
-        links {
-          id
-          title
-          url
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
+// client
+//   .query({
+//     query: gql`
+//       {
+//         links {
+//           id
+//           title
+//           url
+//         }
+//       }
+//     `,
+//   })
+//   .then((result) => console.log(result));
 
 ReactDOM.render(
   <ApolloProvider client={client}>
