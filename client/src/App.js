@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
 import { useQuery } from "@apollo/react-hooks";
+import { useQueryParam, StringParam } from "use-query-params";
 import { gql } from "apollo-boost";
 import SearchLinks from "./components/SearchLinks";
 import LinksList from "./components/LinksList";
@@ -19,12 +20,17 @@ const SEARCH_LINKS = gql`
 `;
 
 function App() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useQueryParam("query", StringParam);
 
-
-  const { data, loading, error } = useQuery(SEARCH_LINKS, {
-    variables: { query }
+  const { data, loading, error, refetch } = useQuery(SEARCH_LINKS, {
+    variables: { query: query || "" },
   });
+
+  useEffect(() => {
+    refetch();
+  });
+
+
 
   return (
     <div className="App">
@@ -35,7 +41,9 @@ function App() {
       </AppBar>
       <Container>
         <SearchLinks setQuery={setQuery} />
-        <AddLink setQuery={setQuery}/>
+        <AddLink
+          setQuery={setQuery}
+        />
         <LinksList data={data} loading={loading} error={error} />
       </Container>
     </div>

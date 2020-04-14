@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import {
+  useHistory
+} from "react-router-dom";
 import { gql } from "apollo-boost";
 import { useMutation } from "@apollo/react-hooks";
 import { TextField, Button, Box } from "@material-ui/core";
@@ -19,16 +22,15 @@ const ADD_LINK = gql`
 const AddLink = ({ setQuery }) => {
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
+  const disabled = !url.trim() || !title.trim();
+  const history = useHistory();
 
   const [addLink, { data, loading, error }] = useMutation(ADD_LINK, {
     onCompleted() {
-      console.log("done!");
+      history.push('/');
     },
   });
-  const disabled = !url.trim() || !title.trim();
 
-  // console.log(data);
-  console.log(`disabled: ${disabled}`);
   return (
     <Box>
       <form
