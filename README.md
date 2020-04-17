@@ -51,3 +51,43 @@ Update this `uri: "http://localhost:4000"` value in the `/client/src/index.js` f
   npm start
 ` 
 
+
+
+# Reflections
+
+### REFLECTIONS
+
+---
+**DECISIONS MADE:**
+
+- Base architecture on example Apollo Server + Client Demo.
+- Go with some technologies I know, such as PostgreSQL and Sequeilze.
+- Also try some I do not, like the Google Materialize React Component Library
+
+**THINGS I LEARNED:**
+
+- how schemas and resolvers and all that are connected
+- how to use hooks  with url params
+- Just smarter ways to use hooks since the Apollo API is so hook based
+
+**CHALLENGES?**
+
+- how to connect Sequelize and apollo
+- just deciding on the overall architecture tbh
+- standardizing returning error messages
+- looks like I don't need two separate endpoints / queries for getting links
+
+**BLOCKERS?**
+
+- just initial understanding of how everything fit together
+
+**COULD NOT GET AROUND TO:**
+
+- made the uri in client connect to more flexible, take a look at process.env for info
+- made the sequelize connection not hardcoded and also based on env variables
+- any form of client side caching
+- pagination
+- clearing the search form after user submits
+- client side validation for URL
+- server side validation for URL
+- Get 'no results found' to properly display
